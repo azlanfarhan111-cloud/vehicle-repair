@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in or create a GearGuard workshop account">
+  <title>Sign In | GearGuard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-body">
+  <input onclick="blackBg()" class="theme-toggle" type="checkbox" id="theme-toggle">
+  <div class="site-shell auth-shell">
+    <header class="auth-header container">
+      <a class="brand" href="index.html" aria-label="GearGuard login">
+        <span class="brand-mark">G</span>
+        <span>Gear<span>Guard</span>
+        </span>
+      </a><label class="theme-label" for="theme-toggle"><span aria-hidden="true">☼</span><span
+          class="switch"><span></span></span><span aria-hidden="true">☾</span><span class="sr-only">Toggle colour
+          theme</span></label>
+    </header>
+    <main class="auth-main container">
+      <section class="auth-showcase" aria-hidden="true">
+        <p class="eyebrow">Vehicle repair management</p>
+        <h1>Your workshop,<br><em>under control.</em></h1>
+        <p>Manage repair jobs, customers, and service updates from one focused workspace.</p>
+        <div class="auth-illustration">
+          <div class="auth-ring"></div>
+          <div class="access-shield">✓</div>
+          <div class="access-orbit orbit-one"></div>
+          <div class="access-orbit orbit-two"></div>
+          <div class="access-card access-card-one"><span class="access-icon">▣</span>
+            <div><b>24 repair jobs</b><small>Organised in one place</small></div>
+          </div>
+          <div class="access-card access-card-two"><span class="access-icon">✓</span>
+            <div><b>Updates protected</b><small>Access your workspace</small></div>
+          </div>
+        </div>
+      </section>
+      <section class="auth-card" aria-label="Account access">
+        <div class="auth-card-heading">
+          <p class="eyebrow">Welcome to GearGuard</p>
+          <h2>Access your workspace</h2>
+          <p>Sign in or create an account to get started.</p>
+        </div>
+        <div class="auth-tabs"><input type="radio" name="auth-view" id="login-tab" checked><input type="radio"
+            name="auth-view" id="signup-tab">
+          <div class="tab-labels" role="tablist" aria-label="Authentication options"><label for="login-tab"
+              role="tab">Log in</label><label for="signup-tab" role="tab">Sign up</label></div>
+          <div class="auth-panels">
+            <form class="auth-form login-form" action="dashboard.html" method="get">
+
+
+              <h3>Welcome back</h3>
+              <p>Enter your credentials to continue.</p>
+
+
+              <label for="login-email">Email address <b>*</b>
+                <input id="login-email" name="email" type="email" placeholder="you@example.com"
+                  required autocomplete="email">
+              </label>
+              <label for="login-password">Password <b>*</b>
+                <input id="login-password" name="password" type="password" placeholder="Enter your password"
+                  minlength="6" required autocomplete="current-password">
+              </label>
+
+
+              <div class="form-option">
+                <label><input type="checkbox" name="remember"> Remember me</label>
+                <a href="#password-help">Forgot password?</a>
+              </div>
+
+              <button class="button button-primary auth-submit" onclick="login()" type="button">Log in to GearGuard →</button>
+              <p class="auth-switch-text">New to GearGuard?
+                <label for="signup-tab">Create an account</label>
+              </p>
+            </form>
+
+
+            <form class="auth-form signup-form" action="pages/signup-success.html" method="get" onsubmit="signUp(event)">
+              <h3>Create your account</h3>
+              <p>Set up your workshop access in a moment.</p>
+
+              <label for="signup-full-name">Full name <b>*</b>
+                <input id="signup-full-name" name="fullName" type="text" placeholder="Enter your full name" required
+                  autocomplete="name">
+              </label>
+
+              <label for="signup-email">Email address <b>*</b>
+                <input id="signup-email" name="email" type="email" placeholder="you@example.com"
+                  required autocomplete="email">
+              </label>
+
+              <label for="signup-dob">Date of birth <b>*</b>
+                <input id="signup-dob" name="dob" min="1900-01-01" max="2026-08-27" type="date" required
+                  autocomplete="bday">
+              </label>
+
+              <label for="signup-password">Password <b>*</b>
+                <input id="signup-password" name="password" type="password" placeholder="At least 6 characters"
+                  minlength="6" required autocomplete="new-password">
+              </label>
+
+              <label for="signup-confirm-password">Confirm password <b>*</b>
+                <input id="signup-confirm-password" name="confirmPassword" type="password"
+                  placeholder="Re-enter your password" minlength="6" required autocomplete="new-password">
+              </label>
+
+              <label class="terms">
+                <input type="checkbox" required> I agree to the <a href="#terms">terms and privacy policy</a>.
+              </label>
+
+              <button class="button button-primary auth-submit" type="submit">Create account →
+              </button>
+              <p class="auth-switch-text">Already have an account? <label for="login-tab">Log in</label></p>
+            </form>
+          </div>
+        </div>
+        <p class="auth-help" id="password-help">For account help, please contact your workshop administrator.</p>
+      </section>
+    </main>
+    <footer class="auth-footer container">© 2026 GearGuard Workshop · Secure workshop access</footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

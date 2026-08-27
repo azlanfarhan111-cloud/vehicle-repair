@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Add a vehicle repair record">
+  <title>New Repair | GearGuard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <input onclick="blackBg()" class="theme-toggle" type="checkbox" id="theme-toggle">
+  <div class="site-shell">
+    <header class="topbar container">
+      <a class="brand" href="dashboard.html">
+        <span class="brand-mark">G</span>
+        <span>Gear<span>Guard</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="repairs.html">Repair Records</a>
+        <a class="active" href="add-repair.html">New Repair</a>
+      </nav>
+      <label class="theme-label" for="theme-toggle">
+        <span>☼</span>
+        <span class="switch">
+          <span></span>
+        </span>
+        <span>☾</span>
+        <span class="sr-only">Toggle colour theme</span>
+      </label>
+    </header>
+    <main class="container page-content">
+      <a class="back-link" href="repairs.html">← Back to repair records</a>
+      <section class="form-layout">
+        <div class="form-intro">
+          <p class="eyebrow">Create a job card</p>
+          <h1>Add repair record</h1>
+          <p>Enter the vehicle and service details below. Fields marked <b>*</b> are required.</p>
+          <div class="form-side-art" aria-hidden="true"><span>⌁</span>
+            <div></div>
+          </div>
+        </div>
+        <form class="repair-form" action="repairs.html" method="get">
+          <fieldset>
+            <legend>Customer details</legend>
+            <div class="form-grid">
+              <label><span class="field-label">Customer name <b>*</b></span>
+                <input id="customer-name" type="text" name="customerName" placeholder="e.g. Ali Khan" required
+                  autocomplete="name">
+              </label>
+              <label><span class="field-label">Phone number <b>*</b></span>
+                <input id="phone-number" type="tel" name="phone" placeholder="03XX-XXXXXXX" required>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Vehicle details</legend>
+            <div class="form-grid">
+              <label><span class="field-label">Vehicle make / model <b>*</b></span>
+                <input id="vehicle-model" type="text" name="vehicleModel" placeholder="e.g. Toyota Corolla" required>
+              </label>
+              <label><span class="field-label">Registration number <b>*</b></span>
+                <input id="registration-number" type="text" name="registrationNumber" placeholder="e.g. ABC-123"
+                  required>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Repair details</legend>
+            <div class="form-grid">
+              <label><span class="field-label">Repair type / service <b>*</b></span>
+                <select id="repair-type" name="repairType" required>
+                  <option value="" selected disabled>Select service type</option>
+                  <option>Brake Service</option>
+                  <option>Oil Change</option>
+                  <option>Engine Tune-up</option>
+                  <option>AC Repair</option>
+                  <option>Wheel Alignment</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label><span class="field-label">Repair cost (Rs) <b>*</b></span>
+                <input id="repair-cost" type="number" name="repairCost" placeholder="e.g. 15000" min="0" required>
+              </label>
+              <label><span class="field-label">Repair status <b>*</b></span>
+                <select id="repair-status" name="repairStatus" required>
+                  <option value="" selected disabled>Select current status</option>
+                  <option>Pending</option>
+                  <option>In Progress</option>
+                  <option>Completed</option>
+                </select>
+              </label>
+            </div>
+            <label class="full-field"><span>Service notes (optional)</span>
+              <textarea id="service-notes" name="notes" rows="4"
+                placeholder="Describe the repair work or parts required..."></textarea>
+            </label>
+          </fieldset>
+          <div class="form-actions"><a class="button button-secondary" href="repairs.html">Cancel</a>
+            <button onclick="addRepairRecord()" class="button button-primary" type="submit">Save Repair Record
+              →</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer class="footer container"><span>© 2026 GearGuard Workshop</span><span>Built for better repairs.</span>
+    </footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+
+</html>

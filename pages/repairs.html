@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vehicle repair records">
+  <title>Repair Records | GearGuard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <input onclick="blackBg()" class="theme-toggle" type="checkbox" id="theme-toggle">
+  <div class="site-shell">
+    <header class="topbar container"><a class="brand" href="dashboard.html"><span
+          class="brand-mark">G</span><span>Gear<span>Guard</span></span></a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="dashboard.html">Dashboard</a>
+        <a class="active" href="repairs.html">Repair Records</a>
+        <a href="add-repair.html">New Repair</a>
+      </nav>
+
+      <label class="theme-label" for="theme-toggle"><span>☼</span><span
+          class="switch"><span></span></span><span>☾</span><span class="sr-only">Toggle colour theme</span>
+      </label>
+    </header>
+    <main class="container page-content">
+      <section class="page-intro">
+        <div>
+          <p class="eyebrow">Repair directory</p>
+          <h1>Repair records</h1>
+          <p>Review every vehicle repair and keep jobs on track.</p>
+        </div><a class="button button-primary" href="add-repair.html">+ Add Repair Record</a>
+      </section>
+      <section class="toolbar" aria-label="Record controls">
+        <label class="search-box"><span>⌕</span>
+          <input id="search-input" oninput="showRepairs()" type="search" placeholder="Search customers, vehicles or registration...">
+        </label>
+        <div class="filter-group">
+          <label for="status-filter" class="sr-only">Filter by status</label><select
+            id="status-filter" onchange="showRepairs()">
+            <option value="all">All Statuses</option>
+            <option>Pending</option>
+            <option>In Progress</option>
+            <option>Completed</option>
+          </select>
+          <label for="sort-by" class="sr-only">Sort records</label><select id="sort-by" onchange="showRepairs()">
+            <option value="customer">Sort: Customer A-Z</option>
+            <option value="vehicle">Sort: Vehicle A-Z</option>
+            <option value="high-cost">Sort: Highest Cost</option>
+            <option value="low-cost">Sort: Lowest Cost</option>
+          </select>
+        </div>
+      </section>
+      <section class="records-panel full-records">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Vehicle</th>
+                <th>Registration</th>
+                <th>Service</th>
+                <th>Cost</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="repair-table"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <footer class="footer container"><span>© 2026 GearGuard Workshop</span><span>Built for better repairs.</span>
+    </footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Edit a vehicle repair record">
+  <title>Edit Repair | GearGuard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <input onclick="blackBg()" class="theme-toggle" type="checkbox" id="theme-toggle">
+  <div class="site-shell">
+    <header class="topbar container"><a class="brand" href="dashboard.html"><span
+          class="brand-mark">G</span><span>Gear<span>Guard</span></span></a>
+      <nav class="main-nav" aria-label="Primary navigation"><a href="dashboard.html">Dashboard</a><a class="active"
+          href="repairs.html">Repair Records</a><a href="add-repair.html">New Repair</a></nav><label class="theme-label"
+        for="theme-toggle"><span>☼</span><span class="switch"><span></span></span><span>☾</span><span
+          class="sr-only">Toggle colour theme</span></label>
+    </header>
+    <main class="container page-content"><a class="back-link" href="repairs.html">← Back to repair records</a>
+      <section class="form-layout">
+        <div class="form-intro">
+          <p class="eyebrow">Update job card</p>
+          <h1>Edit repair record</h1>
+          <p>Update the repair details below and save your changes.</p>
+        </div>
+        <form class="repair-form" onsubmit="updateRepairRecord(event)">
+          <fieldset>
+            <legend>Customer details</legend>
+            <div class="form-grid"><label>Customer name <b>*</b><input id="customer-name" type="text" name="customerName"
+                  required></label><label>Phone number <b>*</b><input id="phone-number" type="tel" name="phone"
+                  required></label></div>
+          </fieldset>
+          <fieldset>
+            <legend>Vehicle details</legend>
+            <div class="form-grid"><label>Vehicle make / model <b>*</b><input id="vehicle-model" type="text" name="vehicleModel"
+                  required></label><label>Registration number <b>*</b><input id="registration-number" type="text"
+                  name="registrationNumber" required></label></div>
+          </fieldset>
+          <fieldset>
+            <legend>Repair details</legend>
+            <div class="form-grid"><label>Repair type / service <b>*</b><select id="repair-type" name="repairType" required>
+                  <option value="" selected disabled>Select service type</option>
+                  <option>Brake Service</option>
+                  <option>Oil Change</option>
+                  <option>Engine Tune-up</option>
+                  <option>AC Repair</option>
+                  <option>Wheel Alignment</option>
+                  <option>Other</option>
+                </select></label><label>Repair cost (Rs) <b>*</b><input id="repair-cost" type="number" name="repairCost"
+                  min="0" required></label><label>Repair status <b>*</b><select id="repair-status" name="repairStatus" required>
+                  <option value="" selected disabled>Select current status</option>
+                  <option>In Progress</option>
+                  <option>Pending</option>
+                  <option>Completed</option>
+                </select></label></div><label class="full-field">Service notes <span>(optional)</span><textarea
+                id="service-notes" name="notes" rows="4"></textarea></label>
+          </fieldset>
+          <div class="form-actions"><a class="button button-secondary" href="repairs.html">Cancel</a><button
+              class="button button-primary" type="submit">Update Repair Record →</button></div>
+        </form>
+      </section>
+    </main>
+    <footer class="footer container"><span>© 2026 GearGuard Workshop</span><span>Built for better repairs.</span>
+    </footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+
+</html>
