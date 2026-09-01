@@ -302,10 +302,18 @@ function showRepairs() {
         records = records.filter(repair => repair.repairStatus === status)
     }
 
-    if (sort === "customer") records.sort((a, b) => a.customerName.localeCompare(b.customerName))
-    if (sort === "vehicle") records.sort((a, b) => a.vehicleModel.localeCompare(b.vehicleModel))
-    if (sort === "high-cost") records.sort((a, b) => b.repairCost - a.repairCost)
-    if (sort === "low-cost") records.sort((a, b) => a.repairCost - b.repairCost)
+    if (sort === "customer") {
+        records.sort((a, b) => a.customerName.localeCompare(b.customerName))
+    }
+    if (sort === "vehicle") {
+        records.sort((a, b) => a.vehicleModel.localeCompare(b.vehicleModel))
+    }
+    if (sort === "high-cost") {
+        records.sort((a, b) => b.repairCost - a.repairCost)
+    }
+    if (sort === "low-cost") {
+        records.sort((a, b) => a.repairCost - b.repairCost)
+    }
 
     displayRepairs(records)
 }
