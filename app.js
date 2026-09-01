@@ -242,7 +242,9 @@ function loadEditRepair() {
 function updateRepairRecord(event) {
     event.preventDefault()
 
-    let repair = repairRecords.find(record => record.id === editId)
+    let repair = repairRecords.find((record) => {
+        record.id === editId
+    })
 
     if (!repair) {
         alert("Repair record not found")
@@ -305,12 +307,15 @@ function showRepairs() {
     if (sort === "customer") {
         records.sort((a, b) => a.customerName.localeCompare(b.customerName))
     }
+
     if (sort === "vehicle") {
         records.sort((a, b) => a.vehicleModel.localeCompare(b.vehicleModel))
     }
+
     if (sort === "high-cost") {
         records.sort((a, b) => b.repairCost - a.repairCost)
     }
+
     if (sort === "low-cost") {
         records.sort((a, b) => a.repairCost - b.repairCost)
     }
